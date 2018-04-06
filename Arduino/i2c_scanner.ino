@@ -1,5 +1,5 @@
 #include <Wire.h>
- 
+// to scan for I2C devices connected to the arduino
  
 void setup()
 {
