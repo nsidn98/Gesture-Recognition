@@ -6,6 +6,9 @@ The documentation for the use of this repo would be put up soon. If you face som
 ## Hardware:
 ![Image of the glove](https://github.com/nsidn98/Gesture-Recognition/blob/master/FullSizeRender.jpg)
 
+## Circuit(Layman):
+![Circuit](https://github.com/nsidn98/Gesture-Recognition/blob/master/gesture%20recognition_bb.jpg)
+
 
 ## Nomenclature of data:
 ### Static Gestures Data: 
@@ -19,8 +22,9 @@ The next three are for for accelerations in 3 axes and the last three for the gy
 
 Each of the row corresponds to a different instance/datapoint of the gesture.
 
+
 ## Dynamic Gestures Data
-[Link]{https://drive.google.com/drive/folders/1iwMiqckshT2eyae5-pAd0of7gbg-t5yi?usp=sharing} for the Dynamic gestures data.
+[Link]{https://drive.google.com/drive/folders/1FDEr4vginXFtD69GY8WtL8kSirXTGTQ1?usp=sharing} for the Dynamic gestures data.
 
 Nomenclature for file name: 
 `d_sample_0_13.txt`: `d` stands for the gesture corresponding to `d`(here Column Formation)
