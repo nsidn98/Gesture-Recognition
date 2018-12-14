@@ -24,7 +24,7 @@ Each of the row corresponds to a different instance/datapoint of the gesture.
 
 
 ## Dynamic Gestures Data
-[Link]{https://drive.google.com/drive/folders/1FDEr4vginXFtD69GY8WtL8kSirXTGTQ1?usp=sharing} for the Dynamic gestures data.
+[Link](https://drive.google.com/drive/folders/1FDEr4vginXFtD69GY8WtL8kSirXTGTQ1?usp=sharing) for the Dynamic gestures data.
 
 Nomenclature for file name: 
 `d_sample_0_13.txt`: `d` stands for the gesture corresponding to `d`(here Column Formation)
