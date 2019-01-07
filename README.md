@@ -95,11 +95,11 @@ Each color(cluster) represents a gesture.
 ### Sampling Method
 In plots below sampling makes the data points of the same gesture have a same shape as seen in the last row of the both examples for `door` as well as `window`. So the SVM is actually trying to capture the shape of the signal amplitude in time domain.
 
-One of the samples for gesture `door`|  One of the samples for gesture `door`
+One of the samples for gesture `door`|  Another sample for gesture `door`
 :-------------------------:|:-------------------------:
 ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G1.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G2.png)
 
-One of the samples for gesture `door`|  One of the samples for gesture `window`
+One of the samples for gesture `door`|  Another sample for gesture `window`
 :-------------------------:|:-------------------------:
 ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G3.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G4.png)
 
