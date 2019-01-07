@@ -58,10 +58,33 @@ Each of the file is a sequence of values obtained through the sensors. (people c
 					
 					
 # Algorithm:
-A button was provided to classify between the static and dynamic.(pretty naive)
+A button was provided to start the gesture for both the static and dynamic gestures.(pretty naive).i.e. the user has to press button 'A' if he/she wants to make a static gesture and press button 'B' for the dynamic gesture.
 
-For static gestures data the acceleration and gyro values were neglected as they were causing a lot of false positives for wrong gesture classes.So only the flex sensor values and the angle values were used in the Support Vector Machine (SVM).
-As visible in the Principal Component Analysis(PCA) of the datapoints (10 dimensions projected to 3 dimensions) they are pretty much clusterable when only the flex sensor values and the angle values are used and pquite haywire when all the feature are used.
+After the button is pressed the Arduino starts recording the sensor values. These sensor values are then preprocessed. 
+
+## Preprocessing of the data:
+The data collected would vary according to the gesture.
+### Static Gesture:
+If it is a static gesture, then the data collected would be like:
+```
+96 520 507 236 181 221 162 9.86	-62.82 3.73 14411.55 1251.89 7263.08 140.94 34.29 31.60
+96 520 506 236 181 222 162 9.83	-62.78 3.70 14402.97 1244.89 7267.33 150.29 33.63 33.22
+95 520 506 235 181 221 161 9.87	-62.76 3.69 14385.42 1241.65 7280.36 169.43 16.54 30.71
+96 520 507 235 181 221 161 9.93	-62.75 3.71 14376.95 1244.77 7301.54 184.90 -15.83 29.67
+96 520 507 236 182 222 161 10.05 -62.81 3.74 14375.51 1252.93 7297.46 182.21 -31.64 37.64
+```
+The size of the data captured would `16 x t` where `t` is the amount of time for which the button is pressed. Also, in static gestures we just use the first 10 features(reason for it is given below). So here `t` is variable which means that we have a sequential data. This rings bells for using a `Recurrent Neural Network(RNN)` but using it means we need more data and higher processing power which certainly mean that it would not be mobile. So we have to use some clever trick to handle this sequential data. So we use `SVMs(Support Vector Machine)` which is often called a poor man's neural network for classification. This is a method which uses neat and elegant methods to come up with maximal margin boundaries or gutters as Dr.Patrick Winston likes to call it. So here we collect `10 x t` data for each gesture and then sample 50 points out of it giving us a `10 x 50 ` vector. If `t<50` then we use extrapolation to make it of size `10 x 50`. Now this vector is linearised and fed to train on an SVM. The training is super-fast compared to Neural Nets and certainly RNNs.
+
+### Dynamic Gesture:
+
+The size of the data captured would `16 x t` where `t` is the amount of time for which the button is pressed. The only difference between the static and dynamic being that instead of `10 x t` as in static we use `16 x t` to sample from. Again we get a `16 x 50` vector which is linearised and fed to train on an SVM.
+
+
+### Reason for using `10 x 50 vector` in static and `16 x t vector` in dynamic
+For static gestures data, the acceleration and gyro values were neglected as they were causing a lot of false positives for wrong gesture classes.So only the flex sensor values and the angle values were used in the Support Vector Machine (SVM).
+As visible in the Principal Component Analysis(PCA) of the datapoints (10 dimensions projected to 3 dimensions) they are pretty much clusterable when only the flex sensor values and the angle values are used and quite haywire when all the feature are used.
+
+Another point to be noteed was that the PCA shows us that there is a lot of room to add more gestures as the clusters are quite far apart.(Note: the clusters being far apart implies going back to 10 dimensions from 3 dimensions.)
 
 When only the above said features are used.
 ![PCA static](https://github.com/nsidn98/Gesture-Recognition/blob/master/PCA/Figure_1.png)
@@ -69,7 +92,15 @@ When all features are used:
 ![PCA static](https://github.com/nsidn98/Gesture-Recognition/blob/master/PCA/Figure_1%3D.png)
 Each color(cluster) represents a gesture.
 
-For the dynamic gesture data :
+### Sampling Method
+In plots below sampling makes the data points of the same gesture have a same shape as seen in the last row of the both examples for `door` as well as `window`. So the SVM is actually trying to capture the shape of the signal amplitude in time domain.
+One of the samples for gesture `door`|  One of the samples for gesture `door`
+:-------------------------:|:-------------------------:
+![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G1.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G2.png)
+
+One of the samples for gesture `door`|  One of the samples for gesture `window`
+:-------------------------:|:-------------------------:
+![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G3.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G4.png)
 
 
  If you face some problems or are not clear about the usage email me at [siddharthnayak98@gmail.com](mailto:siddharthnayak98gmail.com)
