@@ -98,9 +98,9 @@ The size of the data captured would `16 x t` where `t` is the amount of time for
 
 ### Reason for using `10 x 50 vector` in static and `16 x t vector` in dynamic
 For static gestures data, the acceleration and gyro values were neglected as they were causing a lot of false positives for wrong gesture classes.So only the flex sensor values and the angle values were used in the Support Vector Machine (SVM).
-As visible in the Principal Component Analysis(PCA) of the datapoints (10 dimensions projected to 3 dimensions) they are pretty much clusterable when only the flex sensor values and the angle values are used and quite haywire when all the feature are used.
+As visible in the Principal Component Analysis(PCA) of the datapoints they are pretty much clusterable when only the flex sensor values and the angle values are used and quite haywire when all the feature are used.
 
-Another point to be noteed was that the PCA shows us that there is a lot of room to add more gestures as the clusters are quite far apart.(Note: the clusters being far apart implies going back to 10 dimensions from 3 dimensions.)
+Another point to be noteed was that the PCA shows us that there is a lot of room to add more gestures as the clusters are quite far apart.
 
 When only the above said features are used.
 ![PCA static](https://github.com/nsidn98/Gesture-Recognition/blob/master/PCA/Figure_1.png)
