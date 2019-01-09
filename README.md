@@ -1,10 +1,26 @@
 # Gesture-Recognition
 Recognition of standard army hand gestures.
+Soldiers communicate with each other through gestures. But sometimes those gestures are not visible due to obstructions or poor lighting. For that purpose an instrument is required to record the gesture an send it to the fellow soldiers. The two options for gesture recognition are through Computer Vision and through some sensors attached to the hands.The first option is not viable in this case as proper lighting is required for recognition through Computer Vision.Hence the second option of using sensors for recognitions has been used. We present a system which recognises the gestures shown below:
 
-It recognises these [gestures](https://www.zombiehunters.org/wiki/index.php/Military_Hand_Signals).
+![Gestures](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/gestures.jpg)
+
+## Construction
+The given gestures include motions of fingers, wrist and elbow.Hence to detect any changes in them we have used one flex sensors which detects the amount by which it has been bent at each of these joints. To take into account for the dynamic gestures an Inertial Measurement Unit(IMU-MPU-9250) was used.The parameters used from the IMU are Acceleration,Gyroscopic acceleration and angles in all three axes.An Arduino Mega was used to receive the signals from the sensors and send it to the processor.
 
 ## Hardware:
 ![Image of the glove](https://github.com/nsidn98/Gesture-Recognition/blob/master/FullSizeRender.jpg)
+
+## Things Required:
+* Flex Sensors x 7
+* Inertial Measurement Unit(MPU-6050 or MPU9250) x 2
+* Arduino Mega or Raspberry Pi x 1
+* Glove x 1
+* Elbow Band x 1
+* Wrist band x 1
+* General Circuit Board
+* Push Button
+* Resistors
+
 
 ## Circuit(Layman):
 ![Circuit](https://github.com/nsidn98/Gesture-Recognition/blob/master/gesture%20recognition_bb.jpg)
@@ -73,7 +89,7 @@ If it is a static gesture, then the data collected would be like:
 96 520 507 235 181 221 161 9.93	-62.75 3.71 14376.95 1244.77 7301.54 184.90 -15.83 29.67
 96 520 507 236 182 222 161 10.05 -62.81 3.74 14375.51 1252.93 7297.46 182.21 -31.64 37.64
 ```
-The size of the data captured would `16 x t` where `t` is the amount of time for which the button is pressed. Also, in static gestures we just use the first 10 features(reason for it is given below). So here `t` is variable which means that we have a sequential data. This rings bells for using a `Recurrent Neural Network(RNN)` but using it means we need more data and higher processing power which certainly mean that it would not be mobile. So we have to use some clever trick to handle this sequential data. So we use `SVMs(Support Vector Machine)` which is often called a poor man's neural network for classification. This is a method which uses neat and elegant methods to come up with maximal margin boundaries or gutters as Dr.Patrick Winston likes to call it. So here we collect `10 x t` data for each gesture and then sample 50 points out of it giving us a `10 x 50 ` vector. If `t<50` then we use extrapolation to make it of size `10 x 50`. Now this vector is linearised and fed to train on an SVM. The training is super-fast compared to Neural Nets and certainly RNNs.
+The size of the data captured would `16 x t` where `t` is the amount of time for which the button is pressed. Also, in static gestures we just use the first 10 features(reason for it is given below). So here `t` is variable which means that we have a sequential data. This rings bells for using a `Recurrent Neural Network(RNN)` but using it means we need more data and higher processing power which certainly mean that it would not be mobile. So we have to use some clever trick to handle this sequential data. So we use `SVMs(Support Vector Machine)` which is often called a poor man's neural network for classification. This is a method which uses neat and elegant methods to come up with maximal margin boundaries or gutters as Dr.Patrick Winston likes to call it. So here we collect `10 x t` data for each gesture and then sample 50 points out of it giving us a `10 x 50 ` vector. If `t<50` then we use extrapolation to make it of size `10 x 50`. Now this vector is linearised and fed to train on an SVM with Radial Basis Function Kernel(Gaussian). The training is super-fast compared to Neural Nets and certainly RNNs.
 
 ### Dynamic Gesture:
 
