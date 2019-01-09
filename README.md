@@ -1,4 +1,4 @@
-# Gesture-Recognition 
+# Gesture-Recognition
 Recognition of standard army hand gestures.
 
 It recognises these [gestures](https://www.zombiehunters.org/wiki/index.php/Military_Hand_Signals).
@@ -11,10 +11,10 @@ It recognises these [gestures](https://www.zombiehunters.org/wiki/index.php/Mili
 
 
 ## Nomenclature of data:
-### Static Gestures Data: 
-<gesture_name.txt> --> values of accelerometer and gyro values for the gesture `gesture_name`.
+### Static Gestures Data:
+`gesture_name.txt`: values of accelerometer and gyro values for the gesture `gesture_name`.
 
-First seven columns correspond to flex sensor values: First five for five fingers respectively, 6th row for wrist and the 7th column for elbow. 
+First seven columns correspond to flex sensor values: First five for five fingers respectively, 6th row for wrist and the 7th column for elbow.
 
 The next three columns correspond to the angles made wrt the 3 axes.
 
@@ -26,7 +26,7 @@ Each of the row corresponds to a different instance/datapoint of the gesture.
 ## Dynamic Gestures Data
 [Link](https://drive.google.com/drive/folders/1FDEr4vginXFtD69GY8WtL8kSirXTGTQ1?usp=sharing) for the Dynamic gestures data.
 
-Nomenclature for file name: 
+Nomenclature for file name:
 `d_sample_0_13.txt`: `d` stands for the gesture corresponding to `d`(here Column Formation)
 
 `0` stands for the recording session number.(You don't have to worry about it if you.
@@ -60,7 +60,7 @@ Each of the file is a sequence of values obtained through the sensors. (people c
 # Algorithm:
 A button was provided to start the gesture for both the static and dynamic gestures.(pretty naive).i.e. the user has to press button 'A' if he/she wants to make a static gesture and press button 'B' for the dynamic gesture.
 
-After the button is pressed the Arduino starts recording the sensor values. These sensor values are then preprocessed. 
+After the button is pressed the Arduino starts recording the sensor values. These sensor values are then preprocessed.
 
 ## Preprocessing of the data:
 The data collected would vary according to the gesture.
