@@ -1,6 +1,6 @@
 # Gesture-Recognition
 Recognition of standard army hand gestures.
-Soldiers communicate with each other through gestures. But sometimes those gestures are not visible due to obstructions or poor lighting. For that purpose an instrument is required to record the gesture and send it to the fellow soldiers. The two options for gesture recognition are through Computer Vision and through some sensors attached to the hands.The first option is not viable in this case as proper lighting is required for recognition through Computer Vision. Hence the second option of using sensors for recognitions has been used. We present a system which recognises the gestures shown below:
+Soldiers communicate with each other through gestures. But sometimes those gestures are not visible due to obstructions or poor lighting. For that purpose an instrument is required to record the gesture and send it to the fellow soldiers. The two options for gesture recognition are through Computer Vision and through some sensors attached to the hands.The first option is not viable in this case as proper lighting is required for recognition through Computer Vision. Hence the second option of using sensors for recognition has been used. We present a system which recognises the gestures shown below:
 
 ![Gestures](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/gestures.jpg)
 
