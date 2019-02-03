@@ -120,5 +120,5 @@ One of the samples for gesture `door`|  Another sample for gesture `window`
 ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G3.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G4.png)
 
 
- If you face some problems or are not clear about the usage email me at [siddharthnayak98@gmail.com](mailto:siddharthnayak98gmail.com)
+ If you face some problems or are not clear about the usage, feel free to email me at [siddharthnayak98@gmail.com](mailto:siddharthnayak98gmail.com) or open an issue.
 
