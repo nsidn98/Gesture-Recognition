@@ -45,7 +45,7 @@ Each of the row corresponds to a different instance/datapoint of the gesture.
 Nomenclature for file name:
 `d_sample_0_13.txt`: `d` stands for the gesture corresponding to `d`(here Column Formation)
 
-`0` stands for the recording session number.(You don't have to worry about it if you.
+`0` stands for the recording session number.(You don't have to worry about.)
 
 `13` stands for the datapoint number, as each file represents a single instance of the gesture. Each gesture has approximately 60 datapoints.(took a lot of pain to record each of them)
 
