@@ -115,7 +115,7 @@ One of the samples for gesture `door`|  Another sample for gesture `door`
 :-------------------------:|:-------------------------:
 ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G1.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G2.png)
 
-One of the samples for gesture `door`|  Another sample for gesture `window`
+One of the samples for gesture `window`|  Another sample for gesture `window`
 :-------------------------:|:-------------------------:
 ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G3.png)  |  ![](https://github.com/nsidn98/Gesture-Recognition/blob/master/Images/G4.png)
 
